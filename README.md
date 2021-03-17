@@ -2,4 +2,4 @@
 Minhas ferramentas shell script
 
 ## Install Myapps
- ```sh -c "$(curl -fsSL https://raw.githubusercontent.com/thiagolima86/shell_tools/main/myapps_install.sh)"```
+ ``` bash <(curl -s https://raw.githubusercontent.com/thiagolima86/shell_tools/main/myapps_install.sh)```
