@@ -54,6 +54,7 @@ sudo dpkg -i $download_path/*.deb
 
 # Instalar programas no apt
 echo "Instalando programas apt..."
+sudo apt-get install -f
 for program in ${apt_programs[@]}; do
   if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
     apt install "$program" -y
