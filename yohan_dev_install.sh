@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-path="$HOME/workspace/shell_tools/rails_app/yohanwms"
+path="$HOME/workspace/rails_app/yohanwms"
 mkdir -p $path
 
 cd $path
