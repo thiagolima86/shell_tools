@@ -25,9 +25,9 @@ apt_programs=(
 
 
 
-sudo add-apt-repository ppa:atareao/telegram
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo add-apt-repository ppa:atareao/telegram -y
+sudo add-apt-repository ppa:obsproject/obs-studio -y
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable -y
 
 ## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
