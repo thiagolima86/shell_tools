@@ -20,5 +20,5 @@ fi
 
 echo "$script_aliases" >> "$HOME/.zshrc"
 echo "$script_aliases" >> "$HOME/.bashrc"
-source ~/.bashrc
+
 source ~/.zshrc 
