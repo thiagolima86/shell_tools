@@ -10,7 +10,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 #configurar arquivo aliases
 
-script_aliases = "\n
+script_aliases="
+
+#include bash aliase file
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
