@@ -18,6 +18,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 "
 
+touch "$HOME/.bash_aliases"
+
 echo "$script_aliases" >> "$HOME/.zshrc"
 echo "$script_aliases" >> "$HOME/.bashrc"
 
