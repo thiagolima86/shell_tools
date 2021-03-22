@@ -2,11 +2,11 @@
 ## code --list-extensions | xargs -L 1 echo code --install-extension
 
 ## lista de extensões
-code --install-extension~ Dart-Code.dart-code
-code --install-extension~ Dart-Code.flutter
-code --install-extension~ eamodio.gitlens
-code --install-extension~ Hridoy.rails-snippets
-code --install-extension~ ms-azuretools.vscode-docker
-code --install-extension~ VisualStudioExptTeam.vscodeintellicode
-code --install-extension~ wingrunr21.vscode-ruby
+code --install-extension Dart-Code.dart-code
+code --install-extension Dart-Code.flutter
+code --install-extension eamodio.gitlens
+code --install-extension Hridoy.rails-snippets
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension wingrunr21.vscode-ruby
 
