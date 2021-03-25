@@ -10,7 +10,6 @@ deb_links=(
 
 apt_programs=(
   snapd
-  git-all
   vim
   inkscape
   gimp
@@ -20,7 +19,6 @@ apt_programs=(
   obs-studio
   simplescreenrecorder
   kdenlive
-  guake
 )
 
 
