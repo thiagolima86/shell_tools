@@ -64,13 +64,6 @@ for program in ${apt_programs[@]}; do
 done
 
 
-# Instalar programas no snapd
-echo "Instalando programas snapd..."
-sudo snap install --classic code
-sudo snap install postman
-sudo snap install flameshot
-
-
 
 # ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
 ## Finalização, atualização e limpeza##
