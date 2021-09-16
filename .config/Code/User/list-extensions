@@ -2,11 +2,17 @@
 ## code --list-extensions | xargs -L 1 echo code --install-extension
 
 ## lista de extensões
-code --install-extension Dart-Code.dart-code
-code --install-extension Dart-Code.flutter
 code --install-extension eamodio.gitlens
-code --install-extension Hridoy.rails-snippets
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension VisualStudioExptTeam.vscodeintellicode
+
 code --install-extension wingrunr21.vscode-ruby
+code --install-extension castwide.solargraph
+code --install-extension misogi.ruby-rubocop
+code --install-extension rebornix.ruby
+code --install-extension Hridoy.rails-snippets
+
+code --install-extension danielpinto8zz6.c-cpp-compile-run
+code --install-extension ms-vscode.cpptools
+
 

@@ -1,21 +1,4 @@
 {
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [
-            80
-        ],
-        "editor.selectionHighlight": false,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
-    },
-    "[ruby]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true,
-        "editor.detectIndentation":false
-    },
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -23,5 +6,22 @@
         "erb": "html",
         "html.erb": "html"
     },
-    "window.zoomLevel": -1
+    "[ruby]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation":false,
+        "editor.defaultFormatter": "rebornix.ruby",
+    },
+    "ruby.lint": {
+        "reek": true,
+        "rubocop": true,
+        "ruby": true, 
+        "fasterer": true,
+        "debride": true,
+        "ruby-lint": true
+    },
+    "settingsSync.keybindingsPerPlatform": false,
+    "workbench.settings.openDefaultKeybindings": true,
+    "git.autofetch": true,
+    "diffEditor.ignoreTrimWhitespace": false
 }

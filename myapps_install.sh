@@ -9,7 +9,7 @@ deb_links=(
 )
 
 apt_programs=(
-  snapd
+  flameshot
   vim
   inkscape
   gimp
