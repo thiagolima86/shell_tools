@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# USE
+# $ mp42gif <path_to_file.mp4>
+# Define width in pixel
+# $ mp42gif <path_to_file.mp4> --width800
+
+# 1. Checa se um arquivo de entrada foi passado
+if [ -z "$1" ]; then
+    echo "Uso: $0 <arquivo_mp4> [--width<pixels>]"
+    exit 1
+fi
+
+# 2. Define o nome dos arquivos e a largura padrão
+INPUT_FILE="$1"
+OUTPUT_FILE="${INPUT_FILE}.gif"
+TEMP_PALETTE="/tmp/palette.png"
+LARGURA=1200 # Largura padrão
+
+# 3. Verifica se a largura foi especificada pelo usuário
+if [[ "$2" == --width* ]]; then
+    LARGURA=${2#--width}
+fi
+
+# 4. Gera a paleta de cores otimizada
+ffmpeg -i "$INPUT_FILE" -vf "fps=10,scale=$LARGURA:-1:flags=lanczos,palettegen" "$TEMP_PALETTE"
+
+# 5. Converte o vídeo em GIF usando a paleta
+ffmpeg -i "$INPUT_FILE" -i "$TEMP_PALETTE" -filter_complex "fps=10,scale=$LARGURA:-1:flags=lanczos[x];[x][1:v]paletteuse" "$OUTPUT_FILE"
+
+echo "Conversão concluída! O GIF foi salvo como: $OUTPUT_FILE"

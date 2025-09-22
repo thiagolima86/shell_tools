@@ -1,0 +1,57 @@
+#!/bin/bash
+  
+# Define o diretório onde o script está localizado
+script_dir=$(dirname "$(realpath "$0")")
+
+open_note() {
+# Verifica se o arquivo já existe
+    if [ -e "$1" ]; then
+      echo "O arquivo '$1' já existe."
+    else
+      # Cria o arquivo com a data de hoje
+      touch "$1"
+      echo "O arquivo '$1' foi criado."
+    fi
+
+    # Verifica se o arquivo tem permissão de escrita
+    if [ ! -w "$1" ]; then
+      echo "O arquivo '$1' não tem permissão de escrita. Ajustando permissões..."
+      chmod +w "$1"
+      echo "Permissão de escrita foi concedida ao arquivo."
+    fi
+
+    nohup xed "$1" > /dev/null 2>&1 &
+}
+
+case $1 in
+  --help)
+    echo "Command notes open the today note or create"
+    echo "OPTIONS:"
+    echo "--help         List commands"
+    echo "--search       Search a content in all notes"
+    echo "--yesterday    Get yesterday note"
+    echo "--find [date]  Get note by date. The format date is (Y-m-d). Exemple: 'notes --find 2025-01-01'"
+  ;;
+ 
+  --search)
+    grep -r -n --colour "$2" "$script_dir/storage/"
+  ;;
+
+  --yesterday)
+    yesterday=$(date -d "yesterday" +"%Y-%m-%d")
+    file="$script_dir/storage/$yesterday.note"
+    open_note "$file"
+  ;;
+
+  --find)
+    #precisa validar se o arquivo existe
+    file="$script_dir/storage/$2.note"
+    open_note "$file"
+  ;;
+  *)
+    date=$(date +"%Y-%m-%d")
+    file="$script_dir/storage/$date.note"
+
+    open_note "$file"
+  ;;
+esac
