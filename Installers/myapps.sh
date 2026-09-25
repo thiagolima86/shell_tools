@@ -20,7 +20,6 @@ apt_programs=(
   jq
   ripgrep
   fzf
-  bat
   tree
 )
 
