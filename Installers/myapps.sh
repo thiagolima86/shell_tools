@@ -6,6 +6,7 @@ apt_programs=(
   gimp
   audacity
   ffmpeg
+  htop
   simplescreenrecorder
   kdenlive
 )
