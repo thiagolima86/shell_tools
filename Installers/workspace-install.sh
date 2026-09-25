@@ -42,7 +42,6 @@ sudo dpkg -i $path_vscode
 echo "Instalando extensões do vscode ...\n"
 code --install-extension eamodio.gitlens
 code --install-extension ms-azuretools.vscode-docker
-code --install-extension Shopify.ruby-lsp
 code --install-extension Hridoy.rails-snippets
 
 #install docker
