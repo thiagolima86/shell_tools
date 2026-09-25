@@ -4,8 +4,6 @@ download_path="$HOME/Downloads/programas"
 
 deb_links=(
   "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-  "https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/10161/wps-office_11.1.0.10161.XA_amd64.deb"
-  "https://download.anydesk.com/linux/anydesk_6.1.0-1_amd64.deb"
 )
 
 apt_programs=(
@@ -14,17 +12,13 @@ apt_programs=(
   inkscape
   gimp
   audacity
-  telegram
   ffmpeg
-  obs-studio
   simplescreenrecorder
   kdenlive
 )
 
 
 
-sudo add-apt-repository ppa:atareao/telegram -y
-sudo add-apt-repository ppa:obsproject/obs-studio -y
 sudo add-apt-repository ppa:kdenlive/kdenlive-stable -y
 
 ## Removendo travas eventuais do apt ##
@@ -54,8 +48,8 @@ sudo dpkg -i $download_path/*.deb
 echo "Instalando programas apt..."
 sudo apt-get install -f
 for program in ${apt_programs[@]}; do
-  if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
-    apt install "$program" -y
+  if ! dpkg -s "$program" &>/dev/null; then # Só instala se já não estiver instalado
+    sudo apt install "$program" -y
   else
     echo "[INSTALADO] - $program"
   fi

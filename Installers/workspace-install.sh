@@ -25,11 +25,11 @@ Categories=Development;Code;'
 
 
 #Instalar minha workspace de programação
-sudo apt-get update && apt-get install -qq -y --no-install-recommends \
+sudo apt-get update && sudo apt-get install -qq -y --no-install-recommends \
 build-essential \
 vim \
 guake \
-git-all \
+git
 
 install_postman_from 'https://dl.pstmn.io/download/latest/linux'
 
@@ -42,19 +42,14 @@ sudo dpkg -i $path_vscode
 echo "Instalando extensões do vscode ...\n"
 code --install-extension eamodio.gitlens
 code --install-extension ms-azuretools.vscode-docker
-code --install-extension VisualStudioExptTeam.vscodeintellicode
-code --install-extension wingrunr21.vscode-ruby
-code --install-extension castwide.solargraph
-code --install-extension misogi.ruby-rubocop
-code --install-extension rebornix.ruby
+code --install-extension Shopify.ruby-lsp
 code --install-extension Hridoy.rails-snippets
-code --install-extension danielpinto8zz6.c-cpp-compile-run
-code --install-extension ms-vscode.cpptools
 
-#config vscode
-echo "\n\nconfigurando vscode ...\n"
-sudo rm "${HOME}/.config/Code/User/settings.json"
-wget -P "${HOME}/.config/Code/User" https://raw.githubusercontent.com/thiagolima86/shell_tools/main/.config/Code/User/settings.json
+#install docker
+echo "\n\nInstalando docker ...\n"
+curl -fsSL https://get.docker.com | sudo sh
+sudo groupadd docker 2>/dev/null || true
+sudo usermod -aG docker "$USER"
 
 #config workspace folder
 echo "\n\ncriando pasta workspace...\n"
@@ -64,21 +59,21 @@ mkdir "${HOME}/workspace"
 #config git 
 echo "configurando git ..."
 read -p 'Diga seu nome: ' name
-read -p '${name}, agora diga seu email: ' email
+read -p "${name}, agora diga seu email: " email
 git config --global core.editor "vim"
-git config --global user.name $name
-git config --global user.email $email
+git config --global user.name "$name"
+git config --global user.email "$email"
 
 #config sshkey
 
 echo "${name}, agora vamos configurar seu ssh-keygen"
 read -p 'Você tem certeza que quer gerar ssh-keygen?(Y/n) ' keygen
-if [ keygen == "Y" ]
+if [ "$keygen" == "Y" ]
 then
-    ssh-keygen
+    ssh-keygen -t ed25519
 fi
 
 echo "${name}, copie seu sshkeygen e cole nas configurações do repositorio."
 echo "-------------------------------------------------------------------"
-cat  $HOME/.ssh/id_rsa.pub
+cat "$HOME/.ssh/id_ed25519.pub"
 echo "-------------------------------------------------------------------"
