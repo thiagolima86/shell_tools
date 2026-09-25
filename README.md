@@ -21,12 +21,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/thiagolima86/shell_tools/mai
 bash <(curl -fsSL https://raw.githubusercontent.com/thiagolima86/shell_tools/main/Installers/oh_myzsh_install.sh)
 ```
 
-## Install PostgreSQL
-
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/thiagolima86/shell_tools/main/Installers/install_postgres_pgadmin.sh)
-```
-
 ## Mp42gif
 ### Use
 
