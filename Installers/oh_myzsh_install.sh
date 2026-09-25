@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 
-sudo apt install zsh -y
+if [ -d "$HOME/.oh-my-zsh" ]; then
+  echo "[INSTALADO] oh-my-zsh"
+  exit 0
+fi
 
-whereis zsh
+sudo apt update
+sudo apt install -y zsh curl git
 
-sudo usermod -s /usr/bin/zsh $(whoami)
+sudo usermod -s "$(command -v zsh)" "$USER"
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# --unattended: não troca o shell nem abre o zsh no fim (a troca já foi feita acima)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-#configurar arquivo aliases
+# carrega ~/.bash_aliases no zsh (o .bashrc padrão do Ubuntu já faz isso)
+touch "$HOME/.bash_aliases"
+if ! grep -q 'bash_aliases' "$HOME/.zshrc"; then
+  cat >> "$HOME/.zshrc" <<'EOF'
 
-script_aliases="
-
-#include bash aliase file
+# include bash aliases file
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-"
+EOF
+fi
 
-touch "$HOME/.bash_aliases"
-
-echo "$script_aliases" >> "$HOME/.zshrc"
-echo "$script_aliases" >> "$HOME/.bashrc"
-
-source ~/.zshrc 
+echo "Oh My Zsh instalado. Faça logout/login para usar o zsh como shell padrão."
