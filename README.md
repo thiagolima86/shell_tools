@@ -9,7 +9,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/thiagolima86/shell_tools/mai
 ```
 
 ## Install Myapps
-Chrome, Flameshot, Vim, Inkscape, GIMP, Audacity, FFmpeg, SimpleScreenRecorder e Kdenlive.
+Chrome, Flameshot, Inkscape, GIMP, Audacity, FFmpeg, SimpleScreenRecorder e Kdenlive.
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/thiagolima86/shell_tools/main/Installers/myapps_install.sh)
